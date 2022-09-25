@@ -13,7 +13,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-export default function MenuAppBar() {
+import { Link } from 'react-router-dom'
+import userImage from '../../images/user.jpg'
+
+export default function MenuAppBar({ isLogged }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" bgcolor="red">
@@ -22,24 +25,30 @@ export default function MenuAppBar() {
             MyMusicStore.com
           </Typography>
           <div>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <ShoppingCartIcon />
-            </IconButton>
+            <Link to='/sign-in'>
+              {isLogged && <img src={userImage} style={{ width: '20px', height: '20px', borderRadius: '50%' }} />}
+              {!isLogged && <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>}
+            </Link>
+            <Link to='/cart'>
+
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <ShoppingCartIcon />
+              </IconButton>
+            </Link>
           </div>
         </Toolbar>
       </AppBar>

@@ -8,7 +8,7 @@ function Layout(props) {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
       <Box>
-        <Header />
+        <Header isLogged={props.isLogged} />
       </Box>
       <Box flexGrow={1} py={6}>
         {children}

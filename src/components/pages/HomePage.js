@@ -3,13 +3,13 @@ import { productList } from '../../mockData';
 import Layout from '../layout/Layout';
 import ProductDisplay from '../ProductDisplay';
 
-function HomePage() {
+function HomePage({ isLogged, onNewCart }) {
   return (
-    <Layout>
+    <Layout isLogged={isLogged}>
       <Box display="flex" flexDirection="column" alignItems="center">
         {productList.map((product) => (
           <Box mb={6} bgcolor="pink">
-            <ProductDisplay productData={product} />
+            <ProductDisplay productData={product} onNewCart={onNewCart} />
           </Box>
         ))}
       </Box>
